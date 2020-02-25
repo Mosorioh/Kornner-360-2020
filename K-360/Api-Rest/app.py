@@ -90,8 +90,8 @@ def getdata(IdSelectPais):
    finally:
        connection.close()
 
-@app.route ('/Liga/All')
-def getdata():
+@app.route ('/Liga/<All>')
+def getdata(All):
    # Connect to the database
    connection = pymysql.connect(host='181.199.66.129',
                                user='qatest3',
