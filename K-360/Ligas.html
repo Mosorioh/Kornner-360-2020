@@ -128,12 +128,16 @@
                 
                 contenido.innerHTML +=`
                     <tr>
-                    <td> <img src="${data.Data[n].Escudo}" width="10%" class="img-fluid rounded-circle"></td>
-                    <td> ${data.Data[n].Nombre_Liga}</td>
-                    <td>${data.Data[n].Total_Clubes}</td>
-                    <td>${data.Data[n].Total_Torneos}</td>
-                    <td>${data.Data[n].Total_Jugadores}</td>
-                    <td>${data.Data[n].Total_Categorias}</td>
+                      <div id="bBandera">
+                      <a class="link" href="Liga.html?IdLiga=${data.Data[n].Id_Pais}">
+                      <td> <img src="${data.Data[n].Escudo}" width="10%" class="img-fluid rounded-circle"></td>
+                      <td> ${data.Data[n].Nombre_Liga}</td>
+                      <td>${data.Data[n].Total_Clubes}</td>
+                      <td>${data.Data[n].Total_Torneos}</td>
+                      <td>${data.Data[n].Total_Jugadores}</td>
+                      <td>${data.Data[n].Total_Categorias}</td>
+                    </a>
+                  </div>
                     </tr>
 					          `
                     n++;
