@@ -1,0 +1,53 @@
+/* Index Section Select Pais*/
+body {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 15%, rgba(8,67,114,1) 61%, rgba(23,139,150,1) 100%);
+}
+#paises{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    color: antiquewhite;
+}
+#boxPais{
+    margin: auto;
+    width: 15%;
+    height: 100%;
+    border: 1.5px solid rgb(107, 107, 106);
+    background-color: rgb(68, 68, 68);
+    float: left;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+#box-Bandera{
+    width: 28%;
+    height: 35px;
+    float: left;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 2%;
+}
+#box-Nombre-Pais{
+    width: 55%;
+    height: 25px;
+    margin-top: 4%;
+    color: rgb(221, 215, 215);
+    font-family: Verdana;
+    font-style: oblique;
+    font-size: 0.7em;
+    float: right;
+    text-decoration: none;
+}
+.link { 
+  color: rgb(221, 215, 215);
+  text-decoration: none;
+   font-weight: bold;
+}
+.TituloLigaTabla{
+color: antiquewhite;
+background-color: black;
+}
+.TituloLigaTablaList{
+color: rgb(12, 12, 12);
+background-color: rgba(190, 190, 190, 0.328);
+}
