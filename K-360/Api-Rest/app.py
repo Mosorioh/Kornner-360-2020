@@ -90,6 +90,32 @@ def getdata(IdSelectPais):
    finally:
        connection.close()
 
+@app.route ('/Liga/All')
+def getdata():
+   # Connect to the database
+   connection = pymysql.connect(host='181.199.66.129',
+                               user='qatest3',
+                               password='Quito.2019',
+                               db='K-360',
+                               charset='utf8mb4',
+                               cursorclass=pymysql.cursors.DictCursor)
+ 
+   try:
+       with connection.cursor() as cursor:
+           # Read a single record
+           sql = "SELECT `Id`, `Id_Pais`, `Nombre_Liga`, `Escudo`, `Total_Categorias`, `Total_Clubes`, `Total_Jugadores`, `Total_Torneos`, `Bandera_Pais` FROM `Liga` "
+           cursor.execute(sql)
+           result = cursor.fetchall()
+           print(result)
+       return jsonify(
+           #show all data
+           {"Data": result, "message": "Lista de Endpoints"}
+           #show one result of data
+           #{"Data": result[0], "message": "datos Web Change"}
+           )
+   finally:
+       connection.close()
+
 @app.route ('/Jugador')
 def getdataJugador():
    # Connect to the database
