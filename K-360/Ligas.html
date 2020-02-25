@@ -16,7 +16,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Kornner-360</a>
+            <a class="navbar-brand" href="../index.html">Kornner-360</a>
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
@@ -38,9 +38,9 @@
 
         </div>
         
-        <div class="mt-5">
+        <div class="Fondotabla">
           <table class="table table-hover table-dark">
-              <thead>
+              <thead class="TituloLigaTablaList">
                   <tr>
                       <th scope="col"></th>
                       <th scope="col">Liga</th>
@@ -54,7 +54,7 @@
                   
               </tbody>
           </table>
-      </div>
+        </div>
           
          
           
@@ -97,7 +97,7 @@
                 
                 
                     paisdata.innerHTML +=`
-                    <h3 class="text-white"><img src="${data.Data[n].Bandera}" width="5%" class="img-fluid rounded-circle"> Ligas De ${data.Data[n].Nombre}</h3>
+                    <h3 class="TituloSelect"><img src="${data.Data[n].Bandera}" width="5%" class="img-fluid rounded-circle"> Ligas De ${data.Data[n].Nombre}</h3>
 					          `
                     n++;
                   
@@ -129,7 +129,7 @@
                 contenido.innerHTML +=`
                     <tr>
                     <td> <img src="${data.Data[n].Escudo}" width="10%" class="img-fluid rounded-circle"></td>
-                    <td  scope="row"> ${data.Data[n].Nombre_Liga}</td>
+                    <td> ${data.Data[n].Nombre_Liga}</td>
                     <td>${data.Data[n].Total_Clubes}</td>
                     <td>${data.Data[n].Total_Torneos}</td>
                     <td>${data.Data[n].Total_Jugadores}</td>
