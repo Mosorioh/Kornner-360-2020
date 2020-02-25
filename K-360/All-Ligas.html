@@ -35,6 +35,7 @@
         <h3 class="TituloSelect">Ligas Suscritas...</h3>
         <div class="Fondotabla">
         <div class="mt-5">
+          <div class="table-responsive">
           <table class="table table-hover table-dark">
               <thead class="TituloLigaTablaList">
                   <tr>
@@ -45,12 +46,14 @@
                       <th scope="col">Total Jugadores</th>
                       <th scope="col">Total Categorias</th>
                       <th scope="col">Pais</th>
+                      <th scope="col"></th>
                   </tr>
               </thead>
               <tbody id="contenido">
                   
               </tbody>
           </table>
+        </div>
       </div>
     </div>  
          
@@ -81,13 +84,14 @@
                 
                 contenido.innerHTML +=`
                     <tr>
-                    <td> <img src="${data.Data[n].Escudo}" width="10%" class="img-fluid rounded-circle"></td>
-                    <td  scope="row"> ${data.Data[n].Nombre_Liga}</td>
-                    <td>${data.Data[n].Total_Clubes}</td>
-                    <td>${data.Data[n].Total_Torneos}</td>
-                    <td>${data.Data[n].Total_Jugadores}</td>
-                    <td>${data.Data[n].Total_Categorias}</td>
-                    <td>${data.Data[n].Id_Pais}</td>
+                    <td> <img src="${data.Data[n].Escudo}" width="13%"></td>
+                    <td> ${data.Data[n].Nombre_Liga}</td>
+                    <td> ${data.Data[n].Total_Clubes}</td>
+                    <td> ${data.Data[n].Total_Torneos}</td>
+                    <td> ${data.Data[n].Total_Jugadores}</td>
+                    <td> ${data.Data[n].Total_Categorias}</td>
+                    <td> <img src="${data.Data[n].Bandera_Pais}" width="13%" ></td>
+                    <th></th>
                     </tr>
 					          `
                     n++;

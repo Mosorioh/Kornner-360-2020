@@ -113,7 +113,7 @@
 
   <!-- Get para Listar todos los paises -->
 <script>
-  fetch('http://181.199.66.129:5050/Liga')
+  fetch('http://181.199.66.129:5050/Liga/'+PaisIDGet+'')
           .then(res => res.json())
           .then(data => {
               console.log(data.Data)
