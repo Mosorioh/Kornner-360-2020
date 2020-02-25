@@ -77,7 +77,7 @@ def getdata():
    try:
        with connection.cursor() as cursor:
            # Read a single record
-           sql = "SELECT `Id_Pais`, `Nombre_Liga`, `Escudo`, `Total_Categorias`, `Total_Clubes`, `Total_Jugadores`, `Total_Torneos` FROM `Liga` WHERE `Id_Pais`=%s"
+           sql = "SELECT `Id_Pais`, `Nombre_Liga`, `Escudo`, `Total_Categorias`, `Total_Clubes`, `Total_Jugadores`, `Total_Torneos`, `Bandera_Pais` FROM `Liga` WHERE `Id_Pais`=%s"
            cursor.execute(sql, ('1'))
            result = cursor.fetchall()
            print(result)
