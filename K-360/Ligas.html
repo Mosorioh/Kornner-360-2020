@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+<style>
+body {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 15%, rgba(8,67,114,1) 61%, rgba(23,139,150,1) 100%);
+}
+#paises{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    color: antiquewhite;
+
+}
+#boxPais{
+    margin: auto;
+    width: 15%;
+    height: 100%;
+    border: 1.5px solid rgb(107, 107, 106);
+    background-color: rgb(68, 68, 68);
+    float: left;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+#box-Bandera{
+    width: 28%;
+    height: 35px;
+    float: left;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 2%;
+}
+#box-Nombre-Pais{
+    width: 55%;
+    height: 25px;
+    margin-top: 4%;
+    color: rgb(221, 215, 215);
+    font-family: Verdana;
+    font-style: oblique;
+    font-size: 0.7em;
+    float: right;
+    text-decoration: none;
+
+ 
+}
+.link { 
+  color: rgb(221, 215, 215);
+  text-decoration: none;
+   font-weight: bold;
+   }
+
+   .TituloLigaTabla{
+    color: antiquewhite;
+    background-color: black;
+
+}
+
+   .TituloLigaTablaList{
+    color: rgb(12, 12, 12);
+    background-color: rgba(190, 190, 190, 0.328);
+
+}
+</style>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Kornner-360</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+          
+            
+            <li><a href="All-Ligas.html">Todas las Ligas</a></li>
+            <li><a href="index.html">Paises</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <div class="container">
+        <div id="paisdata">
+
+
+        </div>
+        
+        <div class="mt-5">
+          <table class="table table-hover table-dark">
+              <thead>
+                  <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Liga</th>
+                      <th scope="col">Total Clubes</th>
+                      <th scope="col">Total Torneos</th>
+                      <th scope="col">Total Jugadores</th>
+                      <th scope="col">Total Categorias</th>
+                  </tr>
+              </thead>
+              <tbody id="contenido">
+                  
+              </tbody>
+          </table>
+      </div>
+          
+         
+          
+      </div>
+          
+          
+               
+
+      
+</body>
+<!--El siguiente bloque optine de la url la varible Get-->
+<script>
+  /**
+   * @param String name
+   * @return String
+   */
+  function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  var PaisIDGet = getParameterByName('IdSelectPais');
+  console.log("Pais ID:" + PaisIDGet )
+</script>
+
+
+<script>
+  fetch('http://181.199.66.129:5050/Pais/'+PaisIDGet+'')
+          .then(res => res.json())
+          .then(data => {
+              console.log(data.Data)
+              var n = 0;
+              paisdata.innerHTML += ''
+
+
+              for (let country of Object.keys(data.Data)) {
+                var Pais = data.Data[n].Id;
+                //console.log( Pais);
+                
+                
+                    paisdata.innerHTML +=`
+                    <h3 class="text-white"><img src="${data.Data[n].Bandera}" width="5%" class="img-fluid rounded-circle"> Ligas De ${data.Data[n].Nombre}</h3>
+					          `
+                    n++;
+                  
+               
+            }
+             
+          })
+       
+         
+</script>
+
+
+
+  <!-- Get para Listar todos los paises -->
+<script>
+  fetch('http://181.199.66.129:5050/Liga')
+          .then(res => res.json())
+          .then(data => {
+              console.log(data.Data)
+              var n = 0;
+              contenido.innerHTML += ''
+           
+
+              for (let country of Object.keys(data.Data)) {
+                var Pais = data.Data[n].Id;
+                //console.log( Pais);
+                
+                
+                contenido.innerHTML +=`
+                    <tr>
+                    <td> <img src="${data.Data[n].Escudo}" width="10%" class="img-fluid rounded-circle"></td>
+                    <td  scope="row"> ${data.Data[n].Nombre_Liga}</td>
+                    <td>${data.Data[n].Total_Clubes}</td>
+                    <td>${data.Data[n].Total_Torneos}</td>
+                    <td>${data.Data[n].Total_Jugadores}</td>
+                    <td>${data.Data[n].Total_Categorias}</td>
+                    </tr>
+					          `
+                    n++;
+                  
+               
+            }
+             
+          })
+       
+         
+</script>
+  
+</html>
