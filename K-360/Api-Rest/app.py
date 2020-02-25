@@ -64,8 +64,8 @@ def Datapais(Id):
    finally:
        connection.close()
 
-@app.route ('/Liga')
-def getdata():
+@app.route ('/Liga/<IdSelectPais>')
+def getdata(IdSelectPais):
    # Connect to the database
    connection = pymysql.connect(host='181.199.66.129',
                                user='qatest3',
@@ -78,7 +78,7 @@ def getdata():
        with connection.cursor() as cursor:
            # Read a single record
            sql = "SELECT `Id_Pais`, `Nombre_Liga`, `Escudo`, `Total_Categorias`, `Total_Clubes`, `Total_Jugadores`, `Total_Torneos`, `Bandera_Pais` FROM `Liga` WHERE `Id_Pais`=%s"
-           cursor.execute(sql, ('1'))
+           cursor.execute(sql, (IdSelectPais))
            result = cursor.fetchall()
            print(result)
        return jsonify(
